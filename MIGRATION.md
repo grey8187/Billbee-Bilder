@@ -14,6 +14,43 @@ Die Schritte 1 und 2 sind deshalb völlig gefahrlos und beliebig wiederholbar.
 **Erst umstellen, wenn Schritt 2 grün ist** — sonst zeigen Artikelbilder ins
 Leere, und das fällt im Zweifel zuerst dem Kunden auf, nicht euch.
 
+## Der kürzeste Weg
+
+Ein Befehl, der Prüfung, Upload und Kontrolle nacheinander erledigt und vor
+dem Hochladen einmal nachfragt:
+
+```bash
+migration/umzug.sh
+```
+
+Beim ersten Start legt er die Konfigurationsdatei an und sagt, was einzutragen
+ist. Danach dasselbe Kommando nochmal — den Rest macht er allein. An Billbee
+ändert er nichts.
+
+## Ohne Kommandozeile
+
+Geht auch, mit einem FTP-Programm:
+
+1. **Bilder holen:** auf der Repository-Seite über *Code → Download ZIP*
+   (direkt: `https://github.com/grey8187/Billbee-Bilder/archive/refs/heads/main.zip`)
+   und entpacken.
+2. **FileZilla** installieren (`filezilla-project.org`) und den FTP-Zugang des
+   Hosters eintragen.
+3. Auf dem Server im Web-Wurzelverzeichnis — meist `httpdocs/` oder `html/` —
+   einen Ordner **`bilder`** anlegen.
+4. Aus dem entpackten Ordner **nur die `.jpg`- und `.png`-Dateien** markieren
+   (alle 438) und hineinziehen. `README.md`, `MIGRATION.md`, `.gitignore` und
+   den Ordner `migration` **nicht** mitschicken.
+5. Im Browser prüfen, ob ein Bild ankommt:
+   `https://www.stegplattenversand.de/bilder/10169_01.jpg`
+
+Was auf diesem Weg fehlt, ist die vollständige Kontrolle: ob wirklich alle 438
+Bilder angekommen und dabei unverändert geblieben sind, prüft nur
+`migration/02-verifizieren.sh` — dafür braucht es einmal die Kommandozeile
+oder jemanden, der sie laufen lässt. Stichproben im Browser ersetzen das nicht
+zuverlässig, weil ein abgebrochener Upload einzelne Dateien unvollständig
+liegen lässt und die dann trotzdem „da" aussehen.
+
 ## Vorbereitung
 
 ```bash
