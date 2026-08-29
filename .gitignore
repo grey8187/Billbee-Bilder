@@ -1,0 +1,4 @@
+# Echte Zugangsdaten niemals einchecken - nur config.env.beispiel gehoert ins Repo
+migration/config.env
+migration/.verify-tmp/
+*.bak
