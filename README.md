@@ -47,6 +47,13 @@ https://raw.githubusercontent.com/grey8187/Billbee-Bilder/main/<dateiname>
 
 ## Umzug auf den eigenen Webspace
 
-Aus diesen Gründen sollen die Bilder auf `stegplattenversand.de` umziehen. Das
-Vorgehen samt Werkzeugen liegt in [`MIGRATION.md`](MIGRATION.md) und im Ordner
+Aus diesen Gründen sollen die Bilder auf `stegplattenversand.de` umziehen.
+Der ganze Vorgang in einem Befehl:
+
+```bash
+migration/umzug.sh
+```
+
+Ablauf, Rücknahme und ein Weg ohne Kommandozeile stehen in
+[`MIGRATION.md`](MIGRATION.md); die einzelnen Schritte liegen in
 [`migration/`](migration/).
